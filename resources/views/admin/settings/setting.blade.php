@@ -55,34 +55,14 @@
                             <div class="col-md-offset-3 col-md-6">
 
 
-                                <div class="form-group text-center">
-                                    <div class="form-group text-center">
-                                        <img src="{{ Storage::url($logo_dark->value) }}"  alt="User Image" id="preview" height="50px" width="100px" onchange="previewImage(this)">
-                                    </div>
-                                    <div class="file">
-                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload dark logo</label>
-                                        <input type="file" name="logo_dark" accept="image/*" class="form-control" id="darklogo">
-                                    </div>
-                                </div>
-
 
                                 <div class="form-group text-center">
                                     <div class="form-group text-center">
-                                        <img src="{{ Storage::url($logo_light->value) }}"  alt="User Image" id="preview1" height="50px" width="100px" onchange="previewImage(this)">
+                                        <img src="{{ Storage::url($about_image->value) }}"  alt="User Image" id="preview2" height="150px" width="150px" onchange="previewImage(this)">
                                     </div>
                                     <div class="file">
-                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload light logo</label>
-                                        <input type="file" name="logo_light" accept="image/*" class="form-control" id="lightlogo">
-                                    </div>
-                                </div>
-
-                                <div class="form-group text-center">
-                                    <div class="form-group text-center">
-                                        <img src="{{ Storage::url($favicon->value) }}"  alt="User Image" id="preview2" height="50px" width="50px" onchange="previewImage(this)">
-                                    </div>
-                                    <div class="file">
-                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload favicon</label>
-                                        <input type="file" name="favicon" accept="image/*" class="form-control" id="favicon">
+                                        <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload about image</label>
+                                        <input type="file" name="image" accept="image/*" class="form-control" id="favicon">
                                     </div>
                                 </div>
 
@@ -112,67 +92,22 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="slug">Github</label>
-                                    <input type="url" class="form-control" id="slug" name="github" placeholder="Github page link" required="required" value="{{ $github->value }}">
+                                    <label for="slug">Instagram</label>
+                                    <input type="url" class="form-control" id="slug" name="instagram" placeholder="Instagram page link" required="required" value="{{ $instagram->value }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name">Custom css</label>
-                                    <textarea class="form-control" rows="3" placeholder="" name="custom_css" id="editor1" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-                                            {{ $custom_css->value }}
+                                    <label for="slug">Twitter</label>
+                                    <input type="url" class="form-control" id="slug" name="twitter" placeholder="Twitter page link" required="required" value="{{ $twitter->value }}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">About text</label>
+                                    <textarea class="form-control" rows="3" placeholder="" name="about_text" id="editor1" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                                            {{ $about_text->value }}
                                     </textarea>
 
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="name">Footer text</label>
-                                    <textarea class="form-control" rows="3" placeholder="" name="footer_text">
-                                            {{ $footer_text->value }}
-                                    </textarea>
-
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="name">Address</label>
-                                    <textarea class="form-control" rows="3" placeholder="" name="address">
-                                            {{ $address->value }}
-                                        </textarea>
-
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="slug">Map url</label>
-                                    <input type="url" class="form-control" id="slug" name="map" placeholder="Google map address" required="required" value="{{ $map->value }}">
-                                </div>
-
-                                {{--<div class="form-group">--}}
-                                    {{--<label for="name">Short description</label>--}}
-                                    {{--<textarea class="form-control" rows="3" placeholder="Write short description...." name="short_description">--}}
-                                           {{--{{ $service->short_description }}--}}
-                                        {{--</textarea>--}}
-
-                                {{--</div>--}}
-
-                                {{--<div class="form-group">--}}
-                                        {{--<textarea name="description" id="editor1" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">--}}
-                                            {{--{{ $service->description }}--}}
-                                        {{--</textarea>--}}
-                                {{--</div>--}}
-
-
-                                {{--<div class="form-group">--}}
-                                    {{--<label for="slug">Service status</label><br>--}}
-                                    {{--<div class="checkbox">--}}
-                                        {{--<label>--}}
-                                            {{--<input type="checkbox" value="1" name="status"--}}
-                                                      {{--@if($service->status ==1)--}}
-                                                      {{--checked--}}
-                                                    {{--@endif--}}
-                                            {{-->--}}
-                                            {{--Activate--}}
-                                        {{--</label>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
 
                             </div>
 

@@ -31,6 +31,7 @@
                   <li><a href="{{ route('tag.index') }}"><i class="fa fa-circle-o"></i> Tags</a></li>
               </ul>
           </li>
+          <li><a href="{{ route('settings.index') }}"><i class="fa fa-gears text-aqua"></i> <span>Settings</span></a></li>
 
     </ul>
 

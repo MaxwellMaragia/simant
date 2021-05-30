@@ -14,17 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[ \App\Http\Controllers\WebsiteController::class,'home'])->name('home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/about-me', [App\Http\Controllers\WebsiteController::class, 'about']);
 
 Route::resource('post', \App\Http\Controllers\PostController::class);
 Route::resource('category', \App\Http\Controllers\CategoryController::class);
 Route::resource('tag', \App\Http\Controllers\TagController::class);
 Route::resource('settings', \App\Http\Controllers\SettingsController::class);
 Route::resource('profile', \App\Http\Controllers\Profile::class);
+Route::get('blog/{post}',[\App\Http\Controllers\WebsiteController::class,'post'])->name('post');
+Route::get('blog/category/{category}',[\App\Http\Controllers\WebsiteController::class,'category'])->name('category');
+Route::get('search',[\App\Http\Controllers\WebsiteController::class,'search'])->name('search');
 

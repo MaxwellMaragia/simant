@@ -31,9 +31,8 @@
                Create post
             </h1>
             <ol class="breadcrumb">
-                <li><a href="{{ route('post.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="{{ route('post.index') }}"><i class="fa fa-dashboard"></i> Posts</a></li>
                 <li>Create post</li>
-                <li class="active">Add new</li>
             </ol>
         </section>
 

@@ -28,8 +28,7 @@
                 {{ $user->name }}
             </h1>
             <ol class="breadcrumb">
-                <li><a href="{{ route('admin.home') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="{{ route('user.index') }}">Users</a></li>
+                <li><a href="{{ route('post.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li class="active">Edit</li>
             </ol>
         </section>
@@ -73,20 +72,7 @@
 
                                     <div class="form-group">
                                         <label for="name">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" value="{{ $user->email }}" required="required" readonly="readonly">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="name">Phone number</label>
-                                        <input type="text" class="form-control" id="mobile" name="phone" placeholder="eg +254707338839" value="{{ $user->phone }}" required="required">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="name">Short bio</label>
-                                        <textarea class="form-control" rows="3" placeholder="Write your short bio...." name="bio">
-                                            {{ $user->bio }}
-                                        </textarea>
-
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" value="{{ $user->email }}" required="required">
                                     </div>
 
                                     <div class="form-group">

@@ -16,69 +16,36 @@ class SettingsController extends Controller
 
     public function index()
     {
-        $favicon = setting::where('name', 'favicon')->first();
+
         $email = setting::where('name', 'email')->first();
         $mobile = setting::where('name', 'mobile')->first();
         $whatsapp = setting::where('name', 'whatsapp')->first();
         $facebook = setting::where('name', 'facebook')->first();
         $linkedin = setting::where('name', 'linkedin')->first();
+        $twitter = setting::where('name', 'twitter')->first();
+        $instagram = setting::where('name', 'instagram')->first();
+        $about_text = setting::where('name', 'about_text')->first();
+        $about_image = setting::where('name', 'about_image')->first();
 
-        return view('admin.settings.setting',compact('logo_dark','footer_text','facebook','logo_light','favicon','email','whatsapp','linkedin','mobile','github','custom_css','address','map'));
+        return view('admin.settings.setting',compact('email','mobile','whatsapp','facebook','linkedin','twitter','instagram','about_text','about_image'));
 
     }
 
     public function store(Request $request)
     {
             $this->validate($request,[
-                'logo_light' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
-                'logo_dark' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
-                'logo_favicon' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048'
+
             ]);
 
-            if($request->hasFile('logo_light'))
+            if($request->hasFile('image'))
             {
-                $logo_light = setting::where('name','logo_light')->first();
+                $about_image = setting::where('name','about_image')->first();
 
-                $current_image = 'storage/files/setting/'.substr($logo_light->value,22);
-
-                //delete old banner first
-                if(file_exists($current_image))
-                {
-                    unlink($current_image);
-                }
-                $logo_light->value = $request->logo_light->store('public/files/setting');
-                $logo_light->save();
+                $about_image->value = $request->image->store('public/files/setting');
+                $about_image->save();
             }
 
-            if($request->hasFile('logo_dark'))
-            {
-                $logo_dark = setting::where('name','logo_dark')->first();
-
-                $current_image = 'storage/files/setting/'.substr($logo_dark->value,22);
-
-                //delete old banner first
-                if(file_exists($current_image))
-                {
-                    unlink($current_image);
-                }
-                $logo_dark->value = $request->logo_dark->store('public/files/setting');
-                $logo_dark->save();
-            }
-
-            if($request->hasFile('favicon'))
-            {
-                $favicon = setting::where('name','favicon')->first();
-
-                $current_image = 'storage/files/setting/'.substr($favicon->value,22);
-
-                //delete old banner first
-                if(file_exists($current_image))
-                {
-                    unlink($current_image);
-                }
-                $favicon->value = $request->favicon->store('public/files/setting');
-                $favicon->save();
-            }
 
             $email = setting::where('name','email')->first();
             $email->value = $request->email;
@@ -100,25 +67,18 @@ class SettingsController extends Controller
             $linkedin->value = $request->linkedin;
             $linkedin->save();
 
-            $github = setting::where('name','github')->first();
-            $github->value = $request->github;
-            $github->save();
+            $twitter = setting::where('name','twitter')->first();
+            $twitter->value = $request->twitter;
+            $twitter->save();
 
-            $custom_css = setting::where('name','custom_css')->first();
-            $custom_css->value = $request->custom_css;
-            $custom_css->save();
+            $about_text = setting::where('name','about_text')->first();
+            $about_text->value = $request->about_text;
+            $about_text->save();
 
-            $footer_text = setting::where('name','footer_text')->first();
-            $footer_text->value = $request->footer_text;
-            $footer_text->save();
+            $instagram = setting::where('name','instagram')->first();
+            $instagram->value = $request->instagram;
+            $instagram->save();
 
-            $address = setting::where('name','address')->first();
-            $address->value = $request->address;
-            $address->save();
-
-            $map = setting::where('name','map')->first();
-            $map->value = $request->map;
-            $map->save();
 
             return redirect()->back()->with('success','setting updated successfully');
     }

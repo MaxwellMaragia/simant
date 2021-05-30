@@ -42,7 +42,7 @@
                         @foreach($categories as $category)
                             <tr>
                                 <td>{{ $loop->index + 1 }}</td>
-                                <td><img src="{{ Storage::url($category->image) }}" height="80px" width="80px"></td>
+                                <td><img src="{{ Storage::url($category->image) }}"  width="70%"></td>
                                 <td>{{ $category->name }}</td>
                                 <td>{{ $category->slug }}</td>
                                 <td><a href="{{ route('category.edit',$category->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>

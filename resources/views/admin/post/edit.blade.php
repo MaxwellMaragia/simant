@@ -30,7 +30,6 @@
             Edit post
         </h1>
         <ol class="breadcrumb">
-            <li><a href="{{ route('admin.home') }}"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="{{ route('post.index') }}">Posts</a></li>
             <li class="active">Edit post</li>
         </ol>
@@ -184,7 +183,7 @@
                                 </textarea>
                             </div>
 
-                            @can('posts.viewAny',Auth::user() || 'posts.view',Auth::user())
+
                                 <div class="box">
                                     <div class="box-header">
                                         <h3 class="box-title">Publish/Feature</h3>
@@ -194,7 +193,7 @@
                                     <div class="box-body pad">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                @can('posts.viewAny',Auth::user())
+
 
                                                     <div class="col-md-12">
                                                         <div class="col-md-6 col-md-offset-3 text-center">
@@ -210,9 +209,9 @@
 
                                                     </div>
 
-                                                @endcan
 
-                                                @can('posts.view',Auth::user())
+
+
                                                     <div class="col-md-12">
                                                         <div class="col-md-6 col-md-offset-3 text-center">
                                                             <label>
@@ -225,7 +224,7 @@
                                                         </div>
                                                     </div>
                                                     <br>
-                                                @endcan
+
 
                                                 <div class="check @if($post->featured != 1) hide @endif col-md-6 col-md-offset-3">
                                                     <div class="form-group">
@@ -246,7 +245,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endcan
+
 
                             {{--hidden fields--}}
                             <input type="hidden" name="c_default_image" value="{{ $post->image }}">
