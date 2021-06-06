@@ -42,3 +42,7 @@
         {{ session('status') }}
     </div>
 @endif
+
+@if (session('subscribe'))
+    <p class="text-success">{{ session('subscribe') }}</p>
+@endif

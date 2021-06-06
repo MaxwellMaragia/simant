@@ -27,6 +27,9 @@ Route::resource('tag', \App\Http\Controllers\TagController::class);
 Route::resource('settings', \App\Http\Controllers\SettingsController::class);
 Route::resource('profile', \App\Http\Controllers\Profile::class);
 Route::get('blog/{post}',[\App\Http\Controllers\WebsiteController::class,'post'])->name('post');
+Route::get('confirm/{hash}',[\App\Http\Controllers\NewsletterController::class,'confirm']);
+Route::get('unsubscribe/{hash}',[\App\Http\Controllers\NewsletterController::class,'unsubscribe']);
 Route::get('blog/category/{category}',[\App\Http\Controllers\WebsiteController::class,'category'])->name('category');
 Route::get('search',[\App\Http\Controllers\WebsiteController::class,'search'])->name('search');
+Route::post('newsletter',[\App\Http\Controllers\NewsletterController::class,'subscribe']);
 

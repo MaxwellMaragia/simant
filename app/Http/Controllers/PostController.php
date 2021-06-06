@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Article;
 use App\Models\Category;
+use App\Models\Email;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -31,6 +33,7 @@ class PostController extends Controller
         //
         $categories = category::all();
         $tags = tag::all();
+
         return view('admin.post.create',compact('categories','tags'));
     }
 
@@ -75,6 +78,13 @@ class PostController extends Controller
         $post->save();
         $post->tags()->sync($request->tags);
         $post->categories()->sync($request->categories);
+
+        $emails = Email::where('status',1)->get();
+
+        foreach ($emails as $email){
+            $data = ['email'=>$email->email,'title'=>$request->title,'slug'=>Str::slug($request->title),'hash'=>urlencode($email->hash)];
+            Mail::to($email->email)->send(new Article($data));
+        }
 
         return redirect(route('post.index'))->with('success','Post created successfully');
 

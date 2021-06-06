@@ -45,8 +45,9 @@
                     <ul class="navbar-nav">
 
                         <li><a class="nav-link" title="Features" href="{{ url('about-me') }}">About me</a></li>
-                        <li><a class="nav-link" title="Business" href="{{ route('category','business') }}">Business</a></li>
-                        <li><a class="nav-link" title="Travel" href="{{ route('category','travel-adventure') }}">Travel & adventure</a></li>
+                        @foreach($categories as $category)
+                            <li><a class="nav-link" title="Business" href="{{ route('category',$category->slug) }}">{{ $category->name }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
                 <div id="loginpanel-4" class="desktop-hide">
