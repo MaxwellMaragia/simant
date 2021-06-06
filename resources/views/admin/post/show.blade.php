@@ -61,14 +61,14 @@
                                         {{ $post->created_at->toFormattedDateString() }}
                                     </td>
                                     <td>
-                                        @if($post->status === 1)
+                                        @if($post->status == 1)
                                             <span class="badge bg-green">Yes</span>
                                         @else
                                             <span class="badge bg-red">No</span>
                                         @endif
                                     </td>
                                     <td>
-                                        @if($post->featured === 1)
+                                        @if($post->featured == 1)
                                             <span class="badge bg-green">Yes</span>
                                         @else
                                             <span class="badge bg-red">No</span>
